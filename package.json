@@ -1,0 +1,23 @@
+{
+  "name": "zuri_stage_one",
+  "version": "1.0.0",
+  "description": "create an endpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MassterJoe/zuri_internship.git"
+  },
+  "author": "Salawu O. Joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MassterJoe/zuri_internship/issues"
+  },
+  "homepage": "https://github.com/MassterJoe/zuri_internship#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "moment": "^2.29.4"
+  }
+}
