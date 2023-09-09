@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
     const slack_name = req.query.slack_name;
     const track = req.query.track;
     const time = new Date().toISOString();
-    const file_url = 'https://github.com/MassterJoe/zuri_internship/blob/main/stage_one_task/app.js';
+    const file_url = 'https://github.com/MassterJoe/zuri_internship/blob/main/app.js';
     const repo_url = 'https://github.com/MassterJoe/zuri_internship';
     
     const day = moment().format('dddd');
