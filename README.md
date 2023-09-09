@@ -1,2 +1,1 @@
-zuri internship program
-# zuri_internship
+This is Zuri internship program
