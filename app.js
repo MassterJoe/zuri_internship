@@ -5,30 +5,37 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/api', (req, res) => {
-    
-    const slack_name = req.query.slack_name;
-    const track = req.query.track;
-    const time = new Date().toISOString();
-    const file_url = 'https://github.com/MassterJoe/zuri_internship/blob/main/app.js';
-    const repo_url = 'https://github.com/MassterJoe/zuri_internship';
-    
-    const day = moment().format('dddd');
-    if (!slack_name || !track) {
-        return res.status(400).json({ error: 'Both slack_name and track are required.' });
-      }
+  const slack_name = req.query.slack_name;
+  const track = req.query.track;
 
-    const data = {
-            slack_name: slack_name,
-            current_day: day,
-            utc_time: time,
-            track: track,
-            github_file_url: file_url ,
-            github_repo_url: repo_url,
-            status_code: 200
-        }
-res.status(200).json(data);
- 
-})
+  if (!slack_name || !track) {
+    return res.status(400).json({ error: 'Both slack_name and track are required.' });
+  }
+
+  // Get the current UTC time
+  const currentUtcTime = new Date();
+
+  // Adjust the time within a +/-2 minute window
+  const minOffset = -2; // -2 minutes
+  const maxOffset = 2; // +2 minutes
+  const adjustedTime = new Date(currentUtcTime.getTime() + Math.floor(Math.random() * (maxOffset - minOffset + 1)) + minOffset * 60000);
+
+  // Format the adjusted time in the required format
+  const formattedTime = moment.utc(adjustedTime).format('YYYY-MM-DDTHH:mm:ss[Z]');
+
+  const data = {
+    slack_name: slack_name,
+    current_day: moment().format('dddd'),
+    utc_time: formattedTime,
+    track: track,
+    github_file_url: 'https://github.com/MassterJoe/zuri_internship/blob/main/app.js',
+    github_repo_url: 'https://github.com/MassterJoe/zuri_internship',
+    status_code: 200,
+  };
+
+  res.status(200).json(data);
+});
+
 app.listen(port, () => {
-    console.log('Welcome!');
+  console.log('Server is running on port ' + port);
 });
