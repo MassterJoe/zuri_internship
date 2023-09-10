@@ -15,13 +15,10 @@ app.get('/api', (req, res) => {
   // Get the current local time
   const currentLocalTime = moment();
 
-  // Add 1 hour to get the corresponding UTC time
-  const utcTime = currentLocalTime.add(1, 'hours').utc();
-
   const data = {
     slack_name: slack_name,
     current_day: moment().format('dddd'),
-    utc_time: utcTime.format('YYYY-MM-DDTHH:mm:ss[Z]'),
+    utc_time: currentLocalTime.format('YYYY-MM-DDTHH:mm:ss[Z]'),
     track: track,
     github_file_url: 'https://github.com/MassterJoe/zuri_internship/blob/main/app.js',
     github_repo_url: 'https://github.com/MassterJoe/zuri_internship',
