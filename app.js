@@ -12,22 +12,16 @@ app.get('/api', (req, res) => {
     return res.status(400).json({ error: 'Both slack_name and track are required.' });
   }
 
-  // Get the current UTC time
-  const currentUtcTime = new Date();
+  // Get the current local time
+  const currentLocalTime = moment();
 
-  // Adjust the time within a +/-2 minute window
-  const minOffset = -2; // -2 minutes
-  const maxOffset = 2; // +2 minutes
-  const randomOffset = Math.floor(Math.random() * (maxOffset - minOffset + 1)) + minOffset;
-  const adjustedTime = new Date(currentUtcTime.getTime() + randomOffset * 60000);
-
-  // Format the adjusted time in the required format
-  const formattedTime = moment(adjustedTime).format('YYYY-MM-DDTHH:mm:ss[Z]');
+  // Subtract 1 hour to get the corresponding UTC time
+  const utcTime = currentLocalTime.subtract(1, 'hours').utc();
 
   const data = {
     slack_name: slack_name,
     current_day: moment().format('dddd'),
-    utc_time: formattedTime,
+    utc_time: utcTime.format('YYYY-MM-DDTHH:mm:ss[Z]'),
     track: track,
     github_file_url: 'https://github.com/MassterJoe/zuri_internship/blob/main/app.js',
     github_repo_url: 'https://github.com/MassterJoe/zuri_internship',
