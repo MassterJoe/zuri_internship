@@ -18,10 +18,11 @@ app.get('/api', (req, res) => {
   // Adjust the time within a +/-2 minute window
   const minOffset = -2; // -2 minutes
   const maxOffset = 2; // +2 minutes
-  const adjustedTime = new Date(currentUtcTime.getTime() + Math.floor(Math.random() * (maxOffset - minOffset + 1)) + minOffset * 60000);
+  const randomOffset = Math.floor(Math.random() * (maxOffset - minOffset + 1)) + minOffset;
+  const adjustedTime = new Date(currentUtcTime.getTime() + randomOffset * 60000);
 
   // Format the adjusted time in the required format
-  const formattedTime = moment.utc(adjustedTime).format('YYYY-MM-DDTHH:mm:ss[Z]');
+  const formattedTime = moment(adjustedTime).format('YYYY-MM-DDTHH:mm:ss[Z]');
 
   const data = {
     slack_name: slack_name,
