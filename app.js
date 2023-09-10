@@ -15,8 +15,8 @@ app.get('/api', (req, res) => {
   // Get the current local time
   const currentLocalTime = moment();
 
-  // Subtract 1 hour to get the corresponding UTC time
-  const utcTime = currentLocalTime.subtract(1, 'hours').utc();
+  // Add 1 hour to get the corresponding UTC time
+  const utcTime = currentLocalTime.add(1, 'hours').utc();
 
   const data = {
     slack_name: slack_name,
