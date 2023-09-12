@@ -217,3 +217,45 @@ Sample Usage:
 bash
 
 curl -X DELETE http://localhost:3000/api/name/New%20Name
+
+Error Handling
+
+    If there is an error during any API request, the API will return an error response with an appropriate status code and error message in the JSON format. Here are the possible error responses:
+
+    400 Bad Request:
+        When the request body is missing required fields (name and age) in the POST request to create a new person.
+        When the request body is missing the age field in the POST request to create a person by name.
+        When the request body is missing the age field in the PUT request to update a person's details.
+
+    Example Response:
+
+    json
+
+{
+  "error": "Both name and age are required"
+}
+
+404 Not Found:
+
+    When trying to retrieve, update, or delete a person by ID, and the person with the specified ID does not exist.
+    When trying to retrieve, update, or delete a person by name, and the person with the specified name does not exist.
+
+Example Response:
+
+json
+
+{
+  "error": "Person not found"
+}
+
+409 Conflict:
+
+    When trying to create a new person by name, and a person with the same name already exists.
+
+Example Response:
+
+json
+
+{
+  "error": "Person with the same name already exists"
+}
