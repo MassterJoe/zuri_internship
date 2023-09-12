@@ -28,13 +28,13 @@ This API allows you to manage persons in a SQLite database.
    git clone https://github.com/MassterJoe/zuri_internship
    cd zuri_internship
 
-##1. Install the required dependencies.
+1. Install the required dependencies.
 
 bash
 
 npm install
 
-##2. Start the server.
+2. Start the server.
 
 bash
 
@@ -42,12 +42,12 @@ npm start
 
 The server will run on port 3000 by default. You can configure the port by setting the PORT environment variable.
 
-##Endpoints
+Endpoints
 
-###Create a Person
-
-    URL: /api
-
+Create a Person
+Using postman
+    URL: 
+    local host: http://localhost:3000/api/ 
     Method: POST
 
     Request Body:
@@ -77,9 +77,9 @@ Success Response:
         400 (Bad Request) if name or age is missing in the request body.
         500 (Internal Server Error) if there is a server-side error.
 
-###Read a Person by ID
+Read a Person by ID
 
-    URL: /api/:id
+    URL: http://localhost:3000/api/:id
 
     Method: GET
 
@@ -101,9 +101,9 @@ Success Response:
         404 (Not Found) if the person with the specified ID is not found.
         500 (Internal Server Error) if there is a server-side error.
 
-###Update a Person by ID
+Update a Person by ID
 
-    URL: /api/:id
+    URL: http://localhost:3000/api/:id
 
     Method: PUT
 
@@ -133,9 +133,9 @@ Success Response:
         404 (Not Found) if the person with the specified ID is not found.
         500 (Internal Server Error) if there is a server-side error.
 
-###Delete a Person by ID
+Delete a Person by ID
 
-    URL: /api/:id
+    URL: http://localhost:3000/api/:id
 
     Method: DELETE
 
@@ -155,9 +155,9 @@ Success Response:
         404 (Not Found) if the person with the specified ID is not found.
         500 (Internal Server Error) if there is a server-side error.
 
-###Create a Person by Name
+Create a Person by Name
 
-    URL: /api/name/:name
+    URL: http://localhost:3000/api/name/:name
 
     Method: POST
 
@@ -187,9 +187,9 @@ Success Response:
         400 (Bad Request) if age is missing in the request body.
         409 (Conflict) if a person with the same name already exists.
 
-###Read a Person by Name
+Read a Person by Name
 
-    URL: /api/name/:name
+    URL: http://localhost:3000/api/name/:name
 
     Method: GET
 
@@ -211,9 +211,9 @@ Success Response:
         404 (Not Found) if the person with the specified name is not found.
         500 (Internal Server Error) if there is a server-side error.
 
-###Update a Person by Name
+Update a Person by Name
 
-    URL: /api/name/:name
+    URL: http://localhost:3000/api/name/:name
 
     Method: PUT
 
@@ -242,9 +242,9 @@ Success Response:
         404 (Not Found) if the person with the specified name is not found.
         500 (Internal Server Error) if there is a server-side error.
 
-###Delete a Person by Name
+Delete a Person by Name
 
-    URL: /api/name/:name
+    URL: http://localhost:3000/api/name/:name
 
     Method: DELETE
 
