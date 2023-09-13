@@ -68,7 +68,7 @@ Sample Usage:
 bash
 
     curl http://localhost:3000/api/1
-curl https://stage-two-6v3h.onrender.com/api
+curl https://stage-two-6v3h.onrender.com/api/1
 3. Update a Specific Person by ID
 
     URL: /api/:id
