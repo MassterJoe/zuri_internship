@@ -19,6 +19,9 @@ This API allows you to manage persons in a SQLite database.
   - [Delete a Person by Name](#delete-a-person-by-name)
 - [Request/Response Formats](#requestresponse-formats)
 - [Sample API Usage](#sample-api-usage)
+- [Run the test script](#Run-test-script)
+
+
 
 ## Setup Instructions
 
@@ -263,3 +266,7 @@ Delete a Person by Name
     Error Responses:
         404 (Not Found) if the person with the specified name is not found.
         500 (Internal Server Error) if there is a server-side error.
+
+## How to run the test
+on your cli, in the project folder run:  npx mocha test.js
+
